@@ -44,6 +44,11 @@ public class PaymentController {
 
     }
 
+    @RequestMapping("/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;
+    }
+
     @RequestMapping("/payment/test")
     public String test(){
         System.out.println("test ========= PaymentController");

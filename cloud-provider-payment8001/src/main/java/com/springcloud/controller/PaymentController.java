@@ -70,4 +70,9 @@ public class PaymentController {
         return "hello ";
     }
 
+    @RequestMapping("/payment/lb")
+    public String getPaymentLB() {
+        return serverPort;
+    }
+
 }
