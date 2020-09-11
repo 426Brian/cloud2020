@@ -1,0 +1,46 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: cloud-payment-hystrix-service
+  datasource:
+    username: root
+    password: 18d0b61;9
+    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=GMT
+    driver-class-name: org.gjt.mm.mysql.Driver
+    #    用阿里的druid 数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    initialSize: 5
+    maxactive: 20
+    maxWait: 60000
+    minIdle: 5
+    timeBetweenEvictionRunsMillis: 3000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 1 from dual
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    #  日期格式
+    jackson:
+      date-format: yyyy-MM-dd
+      time-zone: GMT+8timestamp
+      serialization:
+        WRITE_DATES_AS_TIMESTAMPS: false
+
+eureka:
+  instance:
+    instance-id: payment-hystrix-8001
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.springcloud.entities
