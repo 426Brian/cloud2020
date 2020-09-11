@@ -1,5 +1,6 @@
 package com.springcloud.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,14 @@ public class PaymentController {
 
     @GetMapping("/payment/hystrix/timeout/{id}")
     public String paymentInfo_timeout(@PathVariable("id") Integer id) {
+        String result = paymentService.paymentInfo_timeout(id);
+        log.info("*** result: " + result);
+        return result;
+    }
+
+    @HystrixCommand(fallbackMethod = "fallbackHandler")
+    @GetMapping("/payment/hystrix/fallback/{id}")
+    public String fallback(@PathVariable("id") Integer id) {
         String result = paymentService.paymentInfo_timeout(id);
         log.info("*** result: " + result);
         return result;
