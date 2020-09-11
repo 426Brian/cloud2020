@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface ConsumerHystrixService {
 
     @RequestMapping(value = "/payment/hystrix/ok/{id}")
-    String paymentInfo_ok(@PathVariable("id") Long id);
+    String paymentInfo_ok(@PathVariable("id") Integer id);
 
     @RequestMapping(value = "/payment/hystrix/timeout/{id}")
-    String paymentInfo_timeout(@PathVariable("id") Long id);
+    String paymentInfo_timeout(@PathVariable("id") Integer id);
 
 }
