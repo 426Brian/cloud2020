@@ -1,0 +1,23 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: cloud-config-client3355
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:426Brian/microservicecloud-config.git
+          search-paths:
+            - microservicecloud-config
+      label: master
+
+eureka:
+  instance:
+    instance-id: cloud-config-client3355
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
