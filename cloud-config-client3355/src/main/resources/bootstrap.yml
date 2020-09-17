@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloud-config-client3355
+    name: config-client
   cloud:
     config:
       label: master
@@ -18,7 +18,7 @@ spring:
 
 eureka:
   instance:
-    instance-id: cloud-config-client3355
+    instance-id: config-client3355
   client:
     register-with-eureka: true
     fetch-registry: true
