@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: cloud-payment-service
+  zipkin:
+      base-url: http://localhost:9411
+      sleuth:
+        sampler: # 采样率值，0 ~ 1
+          probablity: 1
   datasource:
     username: root
     password: 18d0b61;9

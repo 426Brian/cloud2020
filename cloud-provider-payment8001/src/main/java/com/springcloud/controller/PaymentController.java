@@ -60,10 +60,10 @@ public class PaymentController {
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
 
         for (ServiceInstance instance : instances) {
-            log.info(instance.getInstanceId()+"\t"+instance.getHost()+" \t"+instance.getPort()+" \t"+instance.getUri()+" \t");
+            log.info(instance.getInstanceId() + "\t" + instance.getHost() + " \t" + instance.getPort() + " \t" + instance.getUri() + " \t");
         }
         return this.discoveryClient;
-   }
+    }
 
     @RequestMapping("/payment/test")
     public String test() {
@@ -86,5 +86,10 @@ public class PaymentController {
         }
 
         return serverPort;
+    }
+
+    @RequestMapping("/payment/zipkin")
+    public String zipkin() {
+        return "hi, i am zipkin server fall back, welcome to  com.springcloud.controller.PaymentController";
     }
 }
