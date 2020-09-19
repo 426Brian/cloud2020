@@ -3,11 +3,11 @@ server:
 
 spring:
   application:
-    name: nacos-order-provider
+    name: nacos-order8083
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
 
 service-url:
-  nacos-user-service: http://nacos-payment-provider
+  nacos-user-service: http://nacos-provider
